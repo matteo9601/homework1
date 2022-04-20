@@ -15,7 +15,7 @@ public class Corso {
 	
 	//ho reputato necessario creare la variabile id per specificare il corso 
 	@Id
-	@Column(nullable= false)
+	@Column(unique=true ,nullable= false)
 	private int id;
 	
 	@Column(nullable= false)
@@ -30,7 +30,7 @@ public class Corso {
 	@ManyToMany
 	private List<Allievo> allievi;
 
-	@ManyToOne(cascade = {CascadeType.PERSIST})
+	@ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.REMOVE})
 	private Docente docente;
 	
 	

@@ -18,7 +18,7 @@ public class Docente {
 	private String cognome;
 	
 	@Id
-	@Column(nullable= false)
+	@Column(unique=true ,nullable= false)
 	private String PartitaIva;
 	
 	@Column(nullable = false)

@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
@@ -20,7 +21,7 @@ public class Allievo {
 	private String nome;
 	
 	@Id 
-	@Column(nullable = false)
+	@Column(unique=true,nullable = false)
 	private int matricola;
 	
 	@Column(nullable = false)
@@ -32,7 +33,7 @@ public class Allievo {
 	@Column(nullable = false)
 	private String postaElettronica;
 	
-	@ManyToMany(mappedBy="allievi")
+	@ManyToMany(mappedBy="allievi",fetch=FetchType.EAGER)
 	private List<Corso> corsi;
 	
 	@ManyToOne

@@ -7,7 +7,12 @@ import javax.persistence.Id;
 @Entity
 public class Azienda {
 	
+	//l'idea è quella che nella realtà non ci possano essere due aziende con lo stesso nome 
+	//non sono riuscito a trovare un metodo migliore per garantire l'unicità dell'azienda
 	@Id
+	@Column(unique=true ,nullable=false)
+	private String nome;
+	
 	@Column(nullable=false)
 	private String ragioneSociale;
 	
